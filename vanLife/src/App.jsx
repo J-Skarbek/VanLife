@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import NavBar from './NavBar';
 import HomePage from './HomePage';
 import AboutPage from './AboutPage';
 import './App.css'
@@ -12,6 +13,7 @@ function App() {
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
       </nav> */}
+      <NavBar />
       <Routes>
         <Route path="/" element={<HomePage />}/>
         <Route path="/about" element={<AboutPage />}/>
@@ -19,17 +21,5 @@ function App() {
     </BrowserRouter>
   )
 }
-
-// function Home() {
-//   return (
-//     <h1>This is a test 'Home' Compoenent</h1>
-//   )
-// }
-
-// function TestAboutComponent() {
-//   return (
-//     <p>This is a test component -- wiill be deleted!</p>
-//   )
-// }
 
 export default App;
