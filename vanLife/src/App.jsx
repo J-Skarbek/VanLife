@@ -35,4 +35,10 @@ function App() {
   )
 }
 
-export default App
+function TestAboutComponent() {
+  return (
+    <p>This is a test component -- wiill be deleted!</p>
+  )
+}
+
+export { App, TestAboutComponent }
