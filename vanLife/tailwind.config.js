@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        tan: '#FFF7ED'
+        tan: '#FFF7ED',
+        brandOrange: '#FF8C38'
       },
       backgroundImage: {
         'home-hero': "url('public/hero-images/homePage-heroImg.jpg')",

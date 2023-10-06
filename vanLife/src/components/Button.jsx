@@ -2,7 +2,7 @@ import React from "react";
 
 function Button(props) {
   return (
-    <button type="button">{props.text}</button>
+    <button type="button" className="bg-brandOrange">{props.text}</button>
   )
 }
 
