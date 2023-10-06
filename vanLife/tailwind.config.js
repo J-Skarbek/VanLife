@@ -8,11 +8,13 @@ export default {
     extend: {
       colors: {
         tan: '#FFF7ED',
-        brandOrange: '#FF8C38'
+        brandOrange: '#FF8C38',
+        offBlack: '#252525',
+        offGray: '#AAAAAA'
       },
       backgroundImage: {
-        'home-hero': "url('public/hero-images/homePage-heroImg.jpg')",
-        'about-hero': "url('public/hero-images/aboutPage-heroImg.jpg')",
+        'home-hero': "url('/hero-images/homePage-heroImg.jpg')",
+        'about-hero': "url('/hero-images/aboutPage-heroImg.jpg')",
       }
     },
   },
