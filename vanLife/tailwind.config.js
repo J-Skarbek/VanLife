@@ -8,6 +8,10 @@ export default {
     extend: {
       colors: {
         tan: '#FFF7ED'
+      },
+      backgroundImage: {
+        'home-hero': "url('public/hero-images/homePage-heroImg.jpg')",
+        'about-hero': "url('public/hero-images/aboutPage-heroImg.jpg')",
       }
     },
   },
