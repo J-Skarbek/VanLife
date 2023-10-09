@@ -8,7 +8,7 @@ function NavBar() {
         <div className="logo">
           <h1 className="font-black uppercase">&#35;VanLife</h1>
         </div>
-        <nav className="font-semibold capitalize flex w-1/12 justify-between">
+        <nav className="font-semibold capitalize flex w-36 justify-between">
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
         </nav>
