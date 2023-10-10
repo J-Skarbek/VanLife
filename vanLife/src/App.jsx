@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import NavBar from './NavBar';
-import HomePage from './HomePage';
-import AboutPage from './AboutPage';
+import HomePage from './pages//HomePage';
+import AboutPage from './pages/AboutPage';
 import Footer from './Footer';
 import './App.css'
 
