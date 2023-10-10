@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../components/Button";
 
 function AboutPage() {
   return (
@@ -12,6 +13,12 @@ function AboutPage() {
           <p>Our mission is to enliven your road trip with the perfect travel van rental. Our vans are recertified before each trip to ensure your travel plans can go off without a hitch.
           (Hitch costs extra &#128521;)</p>
           <p className="py-8">Our team is full of vanlife enthusiasts who know firsthand the magic of touring the world on 4 wheels.</p>
+        </div>
+        <div className="pageContent p-4">
+        <div className="bg-brandOrange rounded-lg drop-shadow-2xl pageContent px-16 py-8">
+          <p className="text-2xl font-bold">Your destination is waiting.<br></br>Your van is ready.</p>
+          <Button className="text-xl font-bold" text={'Explore our vans'}/>
+        </div>
         </div>
       </div>
     </div>
