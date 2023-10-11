@@ -9,8 +9,10 @@ export default {
       colors: {
         tan: '#FFF7ED',
         brandOrange: '#FF8C38',
+        brandBlack: '#161616',
+        brandGreen: '#115E59',
         offBlack: '#252525',
-        offGray: '#AAAAAA'
+        offGray: '#AAAAAA' 
       },
       backgroundImage: {
         'home-hero': "url('/hero-images/homePage-heroImg.jpg')",
