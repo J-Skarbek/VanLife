@@ -11,6 +11,7 @@ export default {
         brandOrange: '#FF8C38',
         brandBlack: '#161616',
         brandGreen: '#115E59',
+        brandPeach: '#E17654',
         offBlack: '#252525',
         offGray: '#AAAAAA' 
       },
