@@ -11,6 +11,7 @@ function NavBar() {
         <nav className="font-semibold capitalize flex w-36 justify-between">
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
+          <Link to="/van-listings">Vans</Link>
         </nav>
       </div>
     </div>
