@@ -17,7 +17,7 @@ function AboutPage() {
         <div className="pageContent p-4">
           <div className="bg-brandOrange rounded-lg drop-shadow-2xl pageContent px-16 py-8">
             <p className="text-2xl font-bold">Your destination is waiting.<br></br>Your van is ready.</p>
-            <Button className="text-xl font-bold" text={"Explore our vans"} color={'brandBlack'}/>
+            <Button className="text-xl font-bold" text={"Explore our vans"} color={"brandBlack"}/>
           </div>
         </div>
       </div>
