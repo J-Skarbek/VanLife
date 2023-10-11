@@ -7,6 +7,8 @@ import VanListings from './pages/VanListingPage';
 import Footer from './Footer';
 import './App.css'
 
+import "./server"
+
 function App() {
 
   return (
