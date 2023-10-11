@@ -1,4 +1,5 @@
 import React from "react";
+import VanCard from "../components/VanCard";
 
 function VanListings() {
 
@@ -15,9 +16,14 @@ function VanListings() {
 
   const vanElements = vans.map(van => {
     return (
-      <div key={van.id}>
-        <h3>{van.name}</h3>
-      </div>
+      <VanCard 
+        key={van.id}
+        name={van.name}
+        imageUrl={van.imageUrl}
+      // <div key={van.id}>
+      //   <h3>{van.name}</h3>
+      // </div>
+    />
     )
   })
 
