@@ -3,7 +3,7 @@ import VanCard from "../components/VanCard";
 
 function VanListings() {
 
-  const [vans, setVans] = React.useState(null);
+  const [vans, setVans] = React.useState([]);
 
   React.useEffect(() => {
     fetch("/api/vans", { mode: "cors" })
@@ -12,7 +12,6 @@ function VanListings() {
       .catch((error) => console.error(error));
   }, []);
 
-  // console.log(vans[0]);
 
   const vanElements = vans.map(van => {
     return (
@@ -20,10 +19,7 @@ function VanListings() {
         key={van.id}
         name={van.name}
         imageUrl={van.imageUrl}
-      // <div key={van.id}>
-      //   <h3>{van.name}</h3>
-      // </div>
-    />
+      />
     )
   })
 
