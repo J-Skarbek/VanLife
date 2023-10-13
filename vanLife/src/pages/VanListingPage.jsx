@@ -24,9 +24,9 @@ function VanListings() {
   })
 
   return (
-    <div className="main flex justify-center bg-home-hero bg-center bg-no-repeat bg-cover min-h-screen">
-      <div className="container pl-4 py-8 pr-56 w-screen max-w-7xl flex flex-col justify-start text-white">
-        <h1>This will be the van listing page.</h1>
+    <div className="main flex justify-center">
+      <div className="container pl-4 py-8 pr-56 w-screen max-w-7xl flex flex-wrap justify-start text-white">
+        <h1 className="text-black">This will be the van listing page.</h1>
         {vanElements}
       </div>
     </div>

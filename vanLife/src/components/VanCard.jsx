@@ -4,8 +4,8 @@ import Button from "./Button";
 function VanCard(props) {
 
   return (
-    <div className="van-card flex flex-col w-80">
-      <img src={props.imageUrl} alt={props.name} />
+    <div className="van-card flex flex-col w-80 basis-1/2">
+      <img src={props.imageUrl} alt={props.name} className="object-cover" />
       <div className="van-details flex justify-between">
         <h2>{props.name}</h2>
         <p className="van-rates">$100/day</p> 
