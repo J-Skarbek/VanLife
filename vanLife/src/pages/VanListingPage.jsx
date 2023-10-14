@@ -26,7 +26,7 @@ function VanListings() {
 
   return (
     <div className="main flex justify-center">
-      <div className="container pl-4 py-8 max-xl:pr-56 w-screen max-w-7xl flex flex-col justify-start text-white">
+      <div className="container pl-4 py-8 xl:pr-56 w-screen max-w-7xl flex flex-col justify-start text-white">
         <h1 className="text-black font-bold mb-4">Explore Our Van Options</h1>
         <div className="van-filters-container flex">
           <Button 
@@ -41,13 +41,13 @@ function VanListings() {
           />
           <Button 
             text="Luxury"
-            color="brandBlack"
+            color="brandOrange"
             classes="w-1/2"
           />
           <Button 
             text="Clear Filters"
             // color="brandBlack"
-            classes="w-1/2 text-black bg-brandBlack"
+            classes="w-1/2 text-black"
           />
         </div>
         {vanElements}
