@@ -10,9 +10,10 @@ function Header() {
             <h1 className="font-black uppercase">&#35;VanLife</h1>
           </div>
           <nav className="font-semibold capitalize flex w-36 justify-between">
-            <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
-            <Link to="/van-listings">Vans</Link>
+            <Link to="/" className="mx-2">Home</Link>
+            <Link to="/about" className="mx-2">About</Link>
+            <Link to="/van-listings" className="mx-2">Vans</Link>
+            <Link to="/host" className="mx-2">Host</Link>
           </nav>
         </div>
       </div>

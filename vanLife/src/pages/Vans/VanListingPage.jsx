@@ -1,6 +1,6 @@
 import React from "react";
-import VanCard from "../components/VanCard";
-import Button from "../components/Button";
+import VanCard from "../../components/VanCard";
+import Button from "../../components/Button";
 
 function VanListings() {
 
