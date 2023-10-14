@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import VanDetails from "../pages/VanDetails";
 import Button from "./Button";
 
 function VanCard(props) {
