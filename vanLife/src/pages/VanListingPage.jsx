@@ -18,6 +18,7 @@ function VanListings() {
     return (
       <VanCard 
         key={van.id}
+        id={van.id}
         name={van.name}
         imageUrl={van.imageUrl}
         price={van.price}
