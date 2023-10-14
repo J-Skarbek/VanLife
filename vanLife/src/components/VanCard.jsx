@@ -8,7 +8,7 @@ function VanCard(props) {
       <img src={props.imageUrl} alt={props.name} className="object-cover rounded-xl" />
       <div className="van-details flex justify-between text-xl text-black font-semibold my-2">
         <h2>{props.name}</h2>
-        <p className="van-rates">${props.price}<br></br>/day</p> 
+        <p className="van-rates">${props.price}<br></br>/day</p>
       </div>
       <Button 
         text="Book your Van"
