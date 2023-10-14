@@ -31,12 +31,12 @@ function VanListings() {
         <div className="van-filters-container flex">
           <Button 
             text="Simple"
-            color="brandBlack"
+            color="brandOrange"
             classes="w-1/2"
           />
           <Button 
             text="Rugged"
-            color="brandBlack"
+            color="brandOrange"
             classes="w-1/2"
           />
           <Button 
@@ -50,7 +50,9 @@ function VanListings() {
             classes="w-1/2 text-black"
           />
         </div>
+        <div className="vansGrid grid grid-cols-2 auto-rows-auto w-5/6">
         {vanElements}
+        </div>
       </div>
     </div>
   )
