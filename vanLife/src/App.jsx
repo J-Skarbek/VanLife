@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Header from './components/Header';
+import Layout from './components/Layout';
 import HomePage from './pages//HomePage';
 import AboutPage from './pages/AboutPage';
 import VanListings from './pages/VanListingPage';
@@ -14,14 +15,16 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Header />
+      {/* <Header /> */}
       <Routes>
-        <Route path="/" element={<HomePage />}/>
-        <Route path="/about" element={<AboutPage />}/>
-        <Route path="/van-listings" element={<VanListings />}/>
-        <Route path="/van-listings/:id" element={<VanDetails />}/>
+        <Route element={<Layout />}>
+          <Route path="/" element={<HomePage />}/>
+          <Route path="/about" element={<AboutPage />}/>
+          <Route path="/van-listings" element={<VanListings />}/>
+          <Route path="/van-listings/:id" element={<VanDetails />}/>
+        </Route>
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </BrowserRouter>
   )
 }
