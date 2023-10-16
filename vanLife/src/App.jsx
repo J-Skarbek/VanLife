@@ -18,13 +18,13 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<HomePage />}/>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />}/>
           <Route path="about" element={<AboutPage />}/>
           <Route path="van-listings" element={<VanListings />}/>
           <Route path="van-listings/:id" element={<VanDetails />}/>
           <Route path="host" element={<HostLayout />}>
-            <Route path="host" element={<Dashboard />}/>
+            <Route index element={<Dashboard />}/>
             <Route path="income" element={<Income />}/>
             <Route path="reviews" element={<Reviews />}/>
           </Route>
