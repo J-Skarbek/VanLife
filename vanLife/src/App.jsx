@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout';
 import HomePage from './pages//HomePage';
 import AboutPage from './pages/AboutPage';
-import VanListings from './pages/vans/VanListingPage';
+import VanListings from './pages/Vans/VanListings';
 import VanDetails from './pages/Vans/VanDetails';
 import HostLayout from './components/HostLayout';
 import Dashboard from './pages/host/Dashboard';
