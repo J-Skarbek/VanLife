@@ -21,7 +21,7 @@ function HostLayout() {
           Dashboard
         </NavLink>
         <NavLink 
-          to="income" 
+          to="/host/income" 
           className="mx-2"
           end
           style={(isActive) => isActive ? customLinkStyles : null}
@@ -30,7 +30,7 @@ function HostLayout() {
           Income
         </NavLink>
         <NavLink 
-          to="reviews" 
+          to="/host/reviews" 
           className="mx-2"
           end
           style={(isActive) => isActive ? customLinkStyles : null}
@@ -38,7 +38,7 @@ function HostLayout() {
           Reviews
         </NavLink>
         <NavLink 
-          to="vans" 
+          to="/host/vans" 
           className="mx-2"
           end
           style={(isActive) => isActive ? customLinkStyles : null}
