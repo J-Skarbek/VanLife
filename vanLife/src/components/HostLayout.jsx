@@ -1,17 +1,52 @@
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
 function HostLayout() {
+
+  const customLinkStyles = {
+    fontWeight: "bold",
+    textDecoration: "underline",
+    color: "#16161"
+  }
+
   return (
     <>
-      <h1>This will stay.</h1>
       <nav className="host-dashboard-naviatgation">
-        <Link to="/host" className="mx-2">Dashboard</Link>
-        <Link to="income" className="mx-2">Income</Link>
-        <Link to="reviews" className="mx-2">Reviews</Link>
+        <NavLink 
+          to="/host" 
+          className="mx-2"
+          end
+          style={(isActive) => isActive ? customLinkStyles : null}
+        >
+          Dashboard
+        </NavLink>
+        <NavLink 
+          to="income" 
+          className="mx-2"
+          end
+          style={(isActive) => isActive ? customLinkStyles : null}
+          
+        >
+          Income
+        </NavLink>
+        <NavLink 
+          to="reviews" 
+          className="mx-2"
+          end
+          style={(isActive) => isActive ? customLinkStyles : null}
+        >
+          Reviews
+        </NavLink>
+        <NavLink 
+          to="vans" 
+          className="mx-2"
+          end
+          style={(isActive) => isActive ? customLinkStyles : null}
+        >
+          Vans
+        </NavLink>
       </nav>
       <Outlet />
-      <h2>And so will this.</h2>
     </>
   );
 }
