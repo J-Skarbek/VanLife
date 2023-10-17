@@ -8,6 +8,7 @@ function Header() {
     textDecoration: "underline",
     color: "#161616"
   }
+  
   return (
     <header>
       <div className="nav-container bg-tan w-screen flex justify-center">
@@ -24,24 +25,22 @@ function Header() {
               Home
             </NavLink>
             <NavLink 
-              to="about" 
+              to="/about" 
               className="mx-2"
-              // className={({isActive}) => isActive ? "italic" : ""}
               style={({isActive}) => isActive ? customLinkStyles : null}
             >
               About
             </NavLink>
             <NavLink 
-              to="van-listings" 
+              to="/van-listings" 
               className="mx-2"
-              // className={({isActive}) => isActive ? "italic" : ""}
               style={({isActive}) => isActive ? customLinkStyles : null}
             >
               Vans
             </NavLink>
             <NavLink 
+              to="/host"
               className="mx-2"
-              // className={({isActive}) => isActive ? "italic" : ""}
               style={({isActive}) => isActive ? customLinkStyles : null}
             >
               Host
