@@ -2,6 +2,12 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 function Header() {
+
+  const customLinkStyles = {
+    fontWeight: "bold",
+    textDecoration: "underline",
+    color: "#161616"
+  }
   return (
     <header>
       <div className="nav-container bg-tan w-screen flex justify-center">
@@ -12,30 +18,31 @@ function Header() {
           <nav className="font-semibold capitalize flex w-36 justify-between">
             <NavLink 
               to="/" 
-              // className={`mx-2 ${({isActive}) => isActive ? "italic" : ""}`}
-              // className="mx-2"
-              className={({isActive}) => isActive ? "italic" : ""}
+              className="mx-2"
+              style={({isActive}) => isActive ? customLinkStyles : null}
             >
               Home
             </NavLink>
             <NavLink 
               to="about" 
-              // className="mx-2"
-              className={({isActive}) => isActive ? "italic" : ""}
+              className="mx-2"
+              // className={({isActive}) => isActive ? "italic" : ""}
+              style={({isActive}) => isActive ? customLinkStyles : null}
             >
               About
             </NavLink>
             <NavLink 
               to="van-listings" 
-              // className="mx-2"
-              className={({isActive}) => isActive ? "italic" : ""}
+              className="mx-2"
+              // className={({isActive}) => isActive ? "italic" : ""}
+              style={({isActive}) => isActive ? customLinkStyles : null}
             >
               Vans
             </NavLink>
             <NavLink 
-              to="host" 
-              // className="mx-2"
-              className={({isActive}) => isActive ? "italic" : ""}
+              className="mx-2"
+              // className={({isActive}) => isActive ? "italic" : ""}
+              style={({isActive}) => isActive ? customLinkStyles : null}
             >
               Host
             </NavLink>
