@@ -16,15 +16,15 @@ function HostLayout() {
           to="/host" 
           className="mx-2"
           end
-          style={(isActive) => isActive ? customLinkStyles : null}
+          style={({isActive}) => isActive ? customLinkStyles : null}
         >
           Dashboard
         </NavLink>
         <NavLink 
           to="/host/income" 
           className="mx-2"
-          end
-          style={(isActive) => isActive ? customLinkStyles : null}
+          // end
+          style={({isActive}) => isActive ? customLinkStyles : null}
           
         >
           Income
@@ -32,16 +32,16 @@ function HostLayout() {
         <NavLink 
           to="/host/reviews" 
           className="mx-2"
-          end
-          style={(isActive) => isActive ? customLinkStyles : null}
+          // end
+          style={({isActive}) => isActive ? customLinkStyles : null}
         >
           Reviews
         </NavLink>
         <NavLink 
           to="/host/vans" 
           className="mx-2"
-          end
-          style={(isActive) => isActive ? customLinkStyles : null}
+          // end
+          style={({isActive}) => isActive ? customLinkStyles : null}
         >
           Vans
         </NavLink>

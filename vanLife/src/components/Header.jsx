@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function Header() {
 
@@ -20,7 +20,7 @@ function Header() {
             <NavLink 
               to="/" 
               className="mx-2"
-              end
+              // end
               style={({isActive}) => isActive ? customLinkStyles : null}
             >
               Home
@@ -28,7 +28,7 @@ function Header() {
             <NavLink 
               to="/about" 
               className="mx-2"
-              end
+              // end
               style={({isActive}) => isActive ? customLinkStyles : null}
             >
               About
@@ -36,7 +36,7 @@ function Header() {
             <NavLink 
               to="/van-listings" 
               className="mx-2"
-              end
+              // end
               style={({isActive}) => isActive ? customLinkStyles : null}
             >
               Vans
@@ -44,7 +44,7 @@ function Header() {
             <NavLink 
               to="/host"
               className="mx-2"
-              end
+              // end
               style={({isActive}) => isActive ? customLinkStyles : null}
             >
               Host
