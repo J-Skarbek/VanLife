@@ -6,7 +6,7 @@ import AboutPage from './pages/AboutPage';
 import VanListings from './pages/Vans/VanListings';
 import VanDetails from './pages/Vans/VanDetails';
 import HostLayout from './components/HostLayout';
-import Dashboard from './pages/host/dashboard';
+import Dashboard from './pages/Host/Dashboard';
 import Income from './pages/Host/Income';
 import Reviews from './pages/Host/Reviews';
 import HostVans from './pages/Host/HostVans';
