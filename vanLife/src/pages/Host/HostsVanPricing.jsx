@@ -8,7 +8,7 @@ function HostsVanPricing() {
   return (
     <>
      <h1>this is the van details for the host Pricing route</h1>
-     {/* <p className="test">{hostVanDetails}</p> */}
+     <p className="pricing">${hostVanDetails.price}/day</p>
     </>
   )
 }

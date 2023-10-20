@@ -8,6 +8,7 @@ function HostsVanDetails() {
   return (
     <>
      <h1>this is the van details for the host route</h1>
+     <p className="description">{hostVanDetails.description}</p>
     </>
   )
 }
