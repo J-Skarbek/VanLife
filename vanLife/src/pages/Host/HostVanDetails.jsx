@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams, Outlet } from "react-router-dom";
+import { useParams, Outlet, Link } from "react-router-dom";
 import HostDashBoardSubnavigation from "./HostDashBoardSubnavigation";
 
 function HostVanDetails() {
@@ -19,6 +19,13 @@ function HostVanDetails() {
     <>
       <div className="main flex justify-center bg-tan">
         <div className="container pl-4 py-8 xl:pr-56 w-screen max-w-7xl flex flex-col justify-start">
+          <section className="mb-4">
+            <Link
+              to="../vans"
+              className="back-button"
+            >&larr;<span>Back to all vans</span>
+            </Link>
+          </section>
           {
              hostVanDetails ? (
               <div className="van-details flex">
