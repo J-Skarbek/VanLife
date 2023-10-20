@@ -5,6 +5,8 @@ function HostsVanDetails() {
 
   const { hostVanDetails } = useOutletContext();
 
+  console.log(hostVanDetails)
+
   return (
     <>
      <h1>this is the van details for the host route</h1>

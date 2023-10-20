@@ -12,7 +12,7 @@ function HostVanDetails() {
 
   const params = useParams();
 
-  const [hostVanDetails, setHostVanDetails] = React.useState(null);
+  const [hostVanDetails, setHostVanDetails] = React.useState([]);
 
   React.useEffect(() => {
     fetch(`/api/vans/${params.id}`, { mode: "cors" })
@@ -20,6 +20,8 @@ function HostVanDetails() {
       .then((vanData) => setHostVanDetails(vanData.vans))
       .catch((error) => console.error(error));
   }, [params.id]);
+
+  console.log(hostVanDetails)
 
   return (
     <>
