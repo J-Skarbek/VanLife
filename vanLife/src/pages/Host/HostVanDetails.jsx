@@ -1,5 +1,6 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Outlet } from "react-router-dom";
+import HostDashBoardSubnavigation from "./HostDashBoardSubnavigation";
 
 function HostVanDetails() {
 
@@ -32,6 +33,10 @@ function HostVanDetails() {
               </div>
             ) : <h2 className="loading">Loading...</h2> 
           }
+        <div className="hostvan-details-navbar my-4">
+          <HostDashBoardSubnavigation />
+          <Outlet />
+        </div>
         </div>
       </div>
     </>

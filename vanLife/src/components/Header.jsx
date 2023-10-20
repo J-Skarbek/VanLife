@@ -26,7 +26,7 @@ function Header() {
               Home
             </NavLink>
             <NavLink 
-              to="/about" 
+              to="about" 
               className="mx-2"
               // end
               style={({isActive}) => isActive ? customLinkStyles : null}
@@ -34,7 +34,7 @@ function Header() {
               About
             </NavLink>
             <NavLink 
-              to="/van-listings" 
+              to="van-listings" 
               className="mx-2"
               // end
               style={({isActive}) => isActive ? customLinkStyles : null}
@@ -42,7 +42,7 @@ function Header() {
               Vans
             </NavLink>
             <NavLink 
-              to="/host"
+              to="host"
               className="mx-2"
               // end
               style={({isActive}) => isActive ? customLinkStyles : null}

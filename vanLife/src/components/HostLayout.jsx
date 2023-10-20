@@ -14,7 +14,7 @@ function HostLayout() {
       <div className="container pl-4 py-8 xl:pr-56 w-screen max-w-7xl flex flex-col justify-start">
         <nav className="host-dashboard-naviatgation">
           <NavLink 
-            to="/host" 
+            to="." 
             className="mx-2"
             end
             style={({isActive}) => isActive ? customLinkStyles : null}
@@ -22,7 +22,7 @@ function HostLayout() {
             Dashboard
           </NavLink>
           <NavLink 
-            to="/host/income" 
+            to="income" 
             className="mx-2"
             // end
             style={({isActive}) => isActive ? customLinkStyles : null}
@@ -31,7 +31,7 @@ function HostLayout() {
             Income
           </NavLink>
           <NavLink 
-            to="/host/reviews" 
+            to="reviews" 
             className="mx-2"
             // end
             style={({isActive}) => isActive ? customLinkStyles : null}
@@ -39,7 +39,7 @@ function HostLayout() {
             Reviews
           </NavLink>
           <NavLink 
-            to="/host/vans" 
+            to="vans" 
             className="mx-2"
             // end
             style={({isActive}) => isActive ? customLinkStyles : null}
