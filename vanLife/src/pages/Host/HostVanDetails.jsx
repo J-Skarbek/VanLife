@@ -43,7 +43,7 @@ function HostVanDetails() {
           }
         <div className="hostvan-details-navbar my-4">
           <HostDashBoardSubnavigation />
-          <Outlet />
+          <Outlet context={[hostVanDetails, setHostVanDetails]}/>
         </div>
         </div>
       </div>
