@@ -21,7 +21,8 @@ function HostVanDetails() {
         <div className="container pl-4 py-8 xl:pr-56 w-screen max-w-7xl flex flex-col justify-start">
           <section className="mb-4">
             <Link
-              to="../vans"
+              to=".."
+              relative="path"
               className="back-button"
             >&larr;<span>Back to all vans</span>
             </Link>
