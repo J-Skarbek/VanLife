@@ -28,7 +28,7 @@ function VanListings() {
     )
   })
 
-  console.log(vans)
+  // console.log(vans)
 
   return (
     <div className="main flex justify-center">
