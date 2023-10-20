@@ -1,8 +1,14 @@
 import React from "react";
-import { useParams, Outlet, Link } from "react-router-dom";
-import HostDashBoardSubnavigation from "./HostDashBoardSubnavigation";
+import { useParams, Outlet, Link, NavLink } from "react-router-dom";
+// import HostDashBoardSubnavigation from "./HostDashBoardSubnavigation";
 
 function HostVanDetails() {
+
+  const customLinkStyles = {
+    fontWeight: "bold",
+    textDecoration: "underline",
+    color: "#16161"
+  }
 
   const params = useParams();
 
@@ -42,8 +48,31 @@ function HostVanDetails() {
             ) : <h2 className="loading">Loading...</h2> 
           }
         <div className="hostvan-details-navbar my-4">
-          <HostDashBoardSubnavigation />
-          <Outlet context={[hostVanDetails, setHostVanDetails]}/>
+          {/* <HostDashBoardSubnavigation /> */}
+          <>
+            <nav>
+            <NavLink 
+                to="."
+                end
+                className="mx-2"
+                style={({isActive}) => isActive ? customLinkStyles : null}        
+              >Details
+              </NavLink>
+              <NavLink 
+                to="pricing" 
+                className="mx-2"
+                style={({isActive}) => isActive ? customLinkStyles : null}         
+              >Pricing
+              </NavLink>
+              <NavLink 
+                to="photos" 
+                className="mx-2"
+                style={({isActive}) => isActive ? customLinkStyles : null}         
+              >Photos
+              </NavLink>
+            </nav>
+          </>
+          <Outlet context={{ hostVanDetails }}/>
         </div>
         </div>
       </div>
