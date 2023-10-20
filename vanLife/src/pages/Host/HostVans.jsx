@@ -12,19 +12,19 @@ function HostVans() {
 
   const hostVansEls = vans.map(van => (
       <Link
-          to={`/host/vans/${van.id}`}
-          key={van.id}
-          className="host-van-link-wrapper"
+        to={`/host/vans/${van.id}`}
+        key={van.id}
+        className="host-van-link-wrapper"
       >
-          <div className="host-van-single flex bg-tan my-4 drop-shadow-md" key={van.id}>
-            <div className="image-container w-1/5">
-              <img src={van.imageUrl} alt={`Photo of ${van.name}`} />
-            </div>
-            <div className="host-van-info flex flex-col justify-center px-4">
-                <h3>{van.name}</h3>
-                <p>${van.price}/day</p>
-            </div>
+        <div className="host-van-single flex bg-tan my-4 drop-shadow-md" key={van.id}>
+          <div className="image-container w-1/5">
+            <img src={van.imageUrl} alt={`Photo of ${van.name}`} />
           </div>
+          <div className="host-van-info flex flex-col justify-center px-4">
+              <h3>{van.name}</h3>
+              <p>${van.price}/day</p>
+          </div>
+        </div>
       </Link>
   ))
 
@@ -35,14 +35,13 @@ function HostVans() {
             <h1 className="host-vans-title">Your listed vans</h1>
             <div className="host-vans-list">
                 {
-                    vans.length > 0 ? (
-                        <section>
-                            {hostVansEls}
-                        </section>
-
-                    ) : (
-                            <h2>Loading...</h2>
-                        )
+                  vans.length > 0 ? (
+                    <section>
+                      {hostVansEls}
+                    </section>
+                  ) : (
+                    <h2>Loading...</h2>
+                  )
                 }
             </div>
           </div>
