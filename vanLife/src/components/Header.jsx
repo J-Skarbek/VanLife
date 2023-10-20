@@ -16,7 +16,7 @@ function Header() {
           <div className="logo">
             <h1 className="font-black uppercase">&#35;VanLife</h1>
           </div>
-          <nav className="font-semibold capitalize flex w-36 justify-between">
+          <nav className="font-semibold capitalize flex w-56 justify-between">
             <NavLink 
               to="/" 
               className="mx-2"
