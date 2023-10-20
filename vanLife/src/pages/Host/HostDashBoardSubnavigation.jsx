@@ -13,7 +13,7 @@ function HostDashBoardSubnavigation() {
         >Pricing
         </NavLink>
         <NavLink 
-          to="details" 
+          to="."
           className="mx-2"
           
         >Details
