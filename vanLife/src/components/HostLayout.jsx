@@ -11,7 +11,7 @@ function HostLayout() {
 
   return (
     <div className="main flex justify-center">
-      <div className="container pl-4 py-8 xl:pr-56 w-screen max-w-7xl flex flex-col justify-start text-white">
+      <div className="container pl-4 py-8 xl:pr-56 w-screen max-w-7xl flex flex-col justify-start">
         <nav className="host-dashboard-naviatgation">
           <NavLink 
             to="/host" 
