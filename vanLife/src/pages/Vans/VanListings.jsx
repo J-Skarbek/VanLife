@@ -1,10 +1,17 @@
 import React from "react";
 import VanCard from "../../components/VanCard";
 import Button from "../../components/Button";
+import { useSearchParams } from "react-router-dom";
 
 function VanListings() {
 
   const [vans, setVans] = React.useState([]);
+
+  let [searchParams, setSearchParams] = useSearchParams();
+
+  let typeFilter = searchParams.get('type');
+
+  console.log(typeFilter);
 
   React.useEffect(() => {
     fetch("/api/vans", { mode: "cors" })
