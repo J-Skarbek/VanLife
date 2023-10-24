@@ -6,10 +6,8 @@ import { useSearchParams } from "react-router-dom";
 function VanListings() {
 
   const [vans, setVans] = React.useState([]);
-
-  let [searchParams, setSearchParams] = useSearchParams();
-
-  let typeFilter = searchParams.get('type');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const typeFilter = searchParams.get('type');
 
   console.log(typeFilter);
 
@@ -18,10 +16,13 @@ function VanListings() {
       .then((response) => response.json())
       .then((data) => setVans(data.vans))
       .catch((error) => console.error(error));
-  }, []);
+  }, [])
 
+  const displayedVans = typeFilter
+  ? vans.filter(van => van.type.toLowerCase() === typeFilter)
+  : vans
 
-  const vanElements = vans.map(van => {
+  const vanElements = displayedVans.map(van => {
     return (
       <VanCard 
         key={van.id}
