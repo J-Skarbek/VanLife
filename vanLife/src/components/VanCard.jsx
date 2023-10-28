@@ -3,10 +3,9 @@ import { Link } from "react-router-dom";
 import Button from "./Button";
 
 function VanCard(props) {
-  console.log(props.search)
 
   return (
-    <Link to={props.id} state={props.search} >
+    <Link to={props.id} state={{ search: `?${props.search.toString()}`}} >
       <div className="van-card flex flex-col w-80 basis-5/12 m-4">
         <img src={props.imageUrl} alt={props.name} className="object-cover rounded-xl" />
         <div className="van-details flex justify-between text-xl text-black font-semibold my-2">

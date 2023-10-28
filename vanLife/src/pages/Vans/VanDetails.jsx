@@ -1,10 +1,11 @@
 import React from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
 import Button from "../../components/Button";
 
 function VanDetails() {
 
   const params = useParams();
+  const location = useLocation();
   const [van, setVan] = React.useState(null);
 
   React.useEffect(() => {
@@ -14,11 +15,15 @@ function VanDetails() {
       .catch((error) => console.error(error));
   }, [params.id]);
 
+  console.log(location);
+
+  const search = location.state?.search || "";
+
   return (
     <div className="main flex justify-center pb-4 w-screen max-w-7x min-h-screen">
       <div className="flex flex-col pb-4 w-screen max-w-7xl">
         <Link
-          to=".."
+          to={`..${search}`}
           relative="path"
           className="back-button"
         >&larr;<span>Back to all vans</span>

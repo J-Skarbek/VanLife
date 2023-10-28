@@ -32,7 +32,7 @@ function VanListings() {
         price={van.price}
         type={van.type}
         description={van.description}
-        search={searchParams.toString()}
+        search={searchParams}
       />
     )
   })
