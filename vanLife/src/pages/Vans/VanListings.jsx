@@ -46,7 +46,10 @@ function VanListings() {
           <button className="w-1/2 mx-2 text-black" onClick={() => setSearchParams({type: "simple"})}>Simple</button>
           <button className="w-1/2 mx-2 text-black" onClick={() => setSearchParams({type: "rugged"})}>Rugged</button>
           <button className="w-1/2 mx-2 text-black" onClick={() => setSearchParams({type: "luxury"})}>Luxury</button>
-          <button className="w-1/2 mx-2 text-black" onClick={() => setSearchParams({})}>Clear Filters</button>
+          { typeFilter ? 
+            <button className="w-1/2 mx-2 text-black" onClick={() => setSearchParams({})}>Clear Filters</button> 
+            : null }
+          {/* <button className="w-1/2 mx-2 text-black" onClick={() => setSearchParams({})}>Clear Filters</button> */}
           {/* <Link 
             to="?type=simple"
             className="w-1/2 mx-2"          
