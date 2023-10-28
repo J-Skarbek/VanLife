@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import Button from "../../components/Button";
 
 function VanDetails() {
@@ -17,6 +17,12 @@ function VanDetails() {
   return (
     <div className="main flex justify-center pb-4 w-screen max-w-7x min-h-screen">
       <div className="flex flex-col pb-4 w-screen max-w-7xl">
+        <Link
+          to=".."
+          relative="path"
+          className="back-button"
+        >&larr;<span>Back to all vans</span>
+        </Link>
         {van ? (
           <div className="van-details">
             <img src={`${van.imageUrl}`} alt={van.name} className="mb-12 w-screen h-3/4 xl:h-2/4 object-cover max-w-7xl"/>
