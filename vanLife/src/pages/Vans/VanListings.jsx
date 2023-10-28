@@ -43,7 +43,11 @@ function VanListings() {
       <div className="container pl-4 py-8 xl:pr-56 w-screen max-w-7xl flex flex-col justify-start text-white">
         <h1 className="text-black font-bold mb-4">Explore Our Van Options</h1>
         <div className="van-filters-container flex my-4">
-          <Link 
+          <button className="w-1/2 mx-2 text-black" onClick={() => setSearchParams({type: "simple"})}>Simple</button>
+          <button className="w-1/2 mx-2 text-black" onClick={() => setSearchParams({type: "rugged"})}>Rugged</button>
+          <button className="w-1/2 mx-2 text-black" onClick={() => setSearchParams({type: "luxury"})}>Luxury</button>
+          <button className="w-1/2 mx-2 text-black" onClick={() => setSearchParams({})}>Clear Filters</button>
+          {/* <Link 
             to="?type=simple"
             className="w-1/2 mx-2"          
           >Simple
@@ -62,7 +66,9 @@ function VanListings() {
             to="." 
             className="w-1/2 mx-2"                  
           >All Vans
-          </Link>
+          </Link> */}
+
+          {/* These four button elemenets may be reinstated later */}
           {/* <Button 
             text="Simple"
             color="brandOrange"
