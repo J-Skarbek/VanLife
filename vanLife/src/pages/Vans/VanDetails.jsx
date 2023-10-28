@@ -18,6 +18,7 @@ function VanDetails() {
   console.log(location);
 
   const search = location.state?.search || "";
+  const type = location.state?.type || "all";
 
   return (
     <div className="main flex justify-center pb-4 w-screen max-w-7x min-h-screen">
@@ -26,7 +27,7 @@ function VanDetails() {
           to={`..${search}`}
           relative="path"
           className="back-button"
-        >&larr;<span>Back to all vans</span>
+        >&larr;<span>Back to {type} vans</span>
         </Link>
         {van ? (
           <div className="van-details">
