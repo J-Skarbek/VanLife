@@ -7,7 +7,8 @@ import { getVans } from "../../api";
 function VanListings() {
 
   const [vans, setVans] = React.useState([]);
-  const [loading, setLoading] = React.useState(false)
+  const [loading, setLoading] = React.useState(false);
+  const [error, setError] = React.useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
   const typeFilter = searchParams.get('type');
 
@@ -16,8 +17,15 @@ function VanListings() {
   React.useEffect(() => {
     async function loadVans() {
       setLoading(true);
-      const data = await getVans();
-      setVans(data);
+      try {
+        const data = await getVans();
+        setVans(data);
+      } catch(err) {
+        console.log(err)
+        setError(err)
+      } finally {
+        setLoading(false)
+      }
       setLoading(false);
     }
     loadVans();
@@ -44,6 +52,10 @@ function VanListings() {
 
   if (loading) {
     return <h1>Loading Vans...</h1>
+  }
+
+  if (error) {
+    return <h1>There was an error: {error.message}</h1>
   }
 
   return (
