@@ -2,6 +2,7 @@ import React from "react";
 import VanCard from "../../components/VanCard";
 import Button from "../../components/Button";
 import { useSearchParams, Link } from "react-router-dom";
+import { getVans } from "../../api";
 
 function VanListings() {
 
@@ -12,10 +13,11 @@ function VanListings() {
   console.log(typeFilter);
 
   React.useEffect(() => {
-    fetch("/api/vans", { mode: "cors" })
-      .then((response) => response.json())
-      .then((data) => setVans(data.vans))
-      .catch((error) => console.error(error));
+    async function loadVans() {
+      const data = await getVans();
+      setVans(data);
+    }
+    loadVans();
   }, [])
 
   const displayedVans = typeFilter
