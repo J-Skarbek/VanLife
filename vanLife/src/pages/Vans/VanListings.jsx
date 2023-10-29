@@ -7,6 +7,7 @@ import { getVans } from "../../api";
 function VanListings() {
 
   const [vans, setVans] = React.useState([]);
+  const [loading, setLoading] = React.useState(false)
   const [searchParams, setSearchParams] = useSearchParams();
   const typeFilter = searchParams.get('type');
 
@@ -14,8 +15,10 @@ function VanListings() {
 
   React.useEffect(() => {
     async function loadVans() {
+      setLoading(true);
       const data = await getVans();
       setVans(data);
+      setLoading(false);
     }
     loadVans();
   }, [])
@@ -39,7 +42,9 @@ function VanListings() {
     )
   })
 
-  // console.log(vans)
+  if (loading) {
+    return <h1>Loading Vans...</h1>
+  }
 
   return (
     <div className="main flex justify-center">
