@@ -1,41 +1,20 @@
 import React from "react";
 import VanCard from "../../components/VanCard";
-import Button from "../../components/Button";
-import { useSearchParams, Link, useLoaderData } from "react-router-dom";
+// import Button from "../../components/Button";
+import { useSearchParams, useLoaderData } from "react-router-dom";
 import { getVans } from "../../api";
 
 export function loader() {
-  return "Vans data goes here"
+  return getVans();
 }
 
 function VanListings() {
-  const data = useLoaderData();
-  console.log(data);
+  const vans = useLoaderData();
 
-  const [vans, setVans] = React.useState([]);
   const [loading, setLoading] = React.useState(false);
   const [error, setError] = React.useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
   const typeFilter = searchParams.get('type');
-
-  console.log(typeFilter);
-
-  React.useEffect(() => {
-    async function loadVans() {
-      setLoading(true);
-      try {
-        const data = await getVans();
-        setVans(data);
-      } catch(err) {
-        console.log(err)
-        setError(err)
-      } finally {
-        setLoading(false)
-      }
-      setLoading(false);
-    }
-    loadVans();
-  }, [])
 
   const displayedVans = typeFilter
   ? vans.filter(van => van.type.toLowerCase() === typeFilter)
