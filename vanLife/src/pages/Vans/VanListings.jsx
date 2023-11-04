@@ -9,12 +9,10 @@ export function loader() {
 }
 
 function VanListings() {
-  const vans = useLoaderData();
-
-  const [loading, setLoading] = React.useState(false);
   const [error, setError] = React.useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
   const typeFilter = searchParams.get('type');
+  const vans = useLoaderData();
 
   const displayedVans = typeFilter
   ? vans.filter(van => van.type.toLowerCase() === typeFilter)
@@ -34,10 +32,6 @@ function VanListings() {
       />
     )
   })
-
-  if (loading) {
-    return <h1>Loading Vans...</h1>
-  }
 
   if (error) {
     return <h1>There was an error: {error.message}</h1>

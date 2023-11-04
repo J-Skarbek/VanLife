@@ -15,6 +15,7 @@ import HostsVanDetails from './pages/Host/HostsVanDetails';
 import HostsVanPricing from './pages/Host/HostsVanPricing';
 import HostsVanPhotos from './pages/Host/HostsVanPhotos';
 import PageNotFound from './pages/PageNotFound';
+import VansRouteError from './errorElements/VansRouteError';
 import './App.css';
 
 import "./server";
@@ -23,7 +24,12 @@ const router = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<Layout />}>
     <Route index element={<HomePage />}/>
     <Route path="about" element={<AboutPage />}/>
-    <Route path="van-listings" element={<VanListings/>} loader={vansLoader}/>
+    <Route 
+      path="van-listings" 
+      element={<VanListings/>} 
+      errorElement={<VansRouteError />}
+      loader={vansLoader}
+    />
     <Route path="van-listings/:id" element={<VanDetails />}/>
     <Route path="host" element={<HostLayout />}>
       <Route index element={<Dashboard />}/>
