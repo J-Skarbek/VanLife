@@ -1,10 +1,16 @@
 import React from "react";
 import VanCard from "../../components/VanCard";
 import Button from "../../components/Button";
-import { useSearchParams, Link } from "react-router-dom";
+import { useSearchParams, Link, useLoaderData } from "react-router-dom";
 import { getVans } from "../../api";
 
+export function loader() {
+  return "vans data goes here";
+}
+
 function VanListings() {
+  const data = useLoaderData();
+  console.log(data);
 
   const [vans, setVans] = React.useState([]);
   const [loading, setLoading] = React.useState(false);
