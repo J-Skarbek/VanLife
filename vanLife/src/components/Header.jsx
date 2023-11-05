@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 
+
 function Header() {
 
   const customLinkStyles = {
@@ -49,6 +50,13 @@ function Header() {
             >
               Host
             </NavLink>
+            <NavLink 
+              to="login"
+              className="mx-2"
+            >
+              <img src="public/userCircle.svg" alt="user-avatar" />
+            </NavLink>
+
           </nav>
         </div>
       </div>
