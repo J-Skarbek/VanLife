@@ -17,7 +17,7 @@ function Header() {
           <div className="logo">
             <h1 className="font-black uppercase">&#35;VanLife</h1>
           </div>
-          <nav className="font-semibold capitalize flex w-56 justify-between">
+          <nav className="font-semibold capitalize flex w-64 justify-between">
             <NavLink 
               to="/" 
               className="mx-2"
@@ -52,9 +52,8 @@ function Header() {
             </NavLink>
             <NavLink 
               to="login"
-              className="mx-2"
             >
-              <img src="public/userCircle.svg" alt="user-avatar" />
+              <img src="/userCircle.svg" alt="user-avatar" />
             </NavLink>
 
           </nav>
