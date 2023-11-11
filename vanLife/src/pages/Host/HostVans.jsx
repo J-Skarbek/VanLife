@@ -40,15 +40,9 @@ function HostVans() {
           <div className="container pl-4 py-8 xl:pr-56 w-screen max-w-7xl flex flex-col justify-start text-white">
             <h1 className="host-vans-title">Your listed vans</h1>
             <div className="host-vans-list">
-                {
-                  vans.length > 0 ? (
-                    <section>
-                      {hostVansEls}
-                    </section>
-                  ) : (
-                    <h2>Loading...</h2>
-                  )
-                }
+              <section>
+                {hostVansEls}
+              </section>
             </div>
           </div>
         </div>
