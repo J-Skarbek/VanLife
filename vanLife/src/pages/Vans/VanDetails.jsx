@@ -1,27 +1,16 @@
 import React from "react";
-import { useParams, Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useLoaderData } from "react-router-dom";
 import Button from "../../components/Button";
 import { getVans } from "../../api";
 
 export function loader({ params }) {
-  console.log(params)
-  return getVans()
+  return getVans(params.id)
 }
 
 function VanDetails() {
 
-  const params = useParams();
   const location = useLocation();
-  const [van, setVan] = React.useState(null);
-
-  React.useEffect(() => {
-    fetch(`/api/vans/${params.id}`, { mode: "cors" })
-      .then((response) => response.json())
-      .then((vanData) => setVan(vanData.vans))
-      .catch((error) => console.error(error));
-  }, [params.id]);
-
-  console.log(location);
+  const van  = useLoaderData();
 
   const search = location.state?.search || "";
   const type = location.state?.type || "all";
