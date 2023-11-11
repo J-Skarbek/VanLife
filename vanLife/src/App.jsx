@@ -36,9 +36,6 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route 
       path="host" 
       element={<HostLayout />}
-      loader={async () => {
-        return null;
-      }}
     >
       <Route 
         index 
