@@ -33,15 +33,69 @@ const router = createBrowserRouter(createRoutesFromElements(
       loader={vansLoader}
     />
     <Route path="van-listings/:id" element={<VanDetails />}/>
-    <Route path="host" element={<HostLayout />}>
-      <Route index element={<Dashboard />}/>
-      <Route path="income" element={<Income />}/>
-      <Route path="reviews" element={<Reviews />}/>
-      <Route path="vans" element={<HostVans />}/>
-      <Route path="vans/:id" element={<HostVanDetails />}>
-        <Route index element={<HostsVanDetails />}/>
-        <Route path="pricing" element={<HostsVanPricing />}/>
-        <Route path="photos" element={<HostsVanPhotos />}/>
+    <Route 
+      path="host" 
+      element={<HostLayout />}
+      loader={async () => {
+        return null;
+      }}
+    >
+      <Route 
+        index 
+        element={<Dashboard />}
+        loader={async () => {
+          return null;
+        }}
+      />
+      <Route 
+        path="income" 
+        element={<Income />}
+        loader={async () => {
+          return null;
+        }}
+      />
+      <Route 
+        path="reviews" 
+        element={<Reviews />}
+        loader={async () => {
+          return null;
+        }}
+      />
+      <Route 
+        path="vans" 
+        element={<HostVans />}
+        loader={async () => {
+          return null;
+        }}
+      />
+      <Route 
+        path="vans/:id" 
+        element={<HostVanDetails />}
+        loader={async () => {
+          return null;
+        }}
+      >
+        <Route 
+          index 
+          element={<HostsVanDetails />}
+          loader={async () => {
+            return null;
+          }}
+        />
+        <Route 
+          path="pricing" 
+          element={<HostsVanPricing />}
+          loader={async () => {
+            return null;
+          }}
+        />
+        <Route 
+          path="photos" 
+          element={<HostsVanPhotos />}
+          loader={async () => {
+            return null;
+          }}
+        />
       </Route>
     </Route>
     <Route path="*" element={<PageNotFound />}/>
