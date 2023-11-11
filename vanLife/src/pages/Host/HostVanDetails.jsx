@@ -1,6 +1,10 @@
 import React from "react";
-import { useParams, Outlet, Link, NavLink } from "react-router-dom";
-// import HostDashBoardSubnavigation from "./HostDashBoardSubnavigation";
+import { useParams, Outlet, Link, NavLink, useLoaderData } from "react-router-dom";
+import { getHostVans } from "../../api";
+
+export function loader({ params }) {
+  return getHostVans(params.id)
+}
 
 function HostVanDetails() {
 
@@ -10,18 +14,19 @@ function HostVanDetails() {
     color: "#16161"
   }
 
-  const params = useParams();
+  // const params = useParams();
+  const hostVanDetails = useLoaderData();
 
-  const [hostVanDetails, setHostVanDetails] = React.useState([]);
+  // const [hostVanDetails, setHostVanDetails] = React.useState([]);
 
-  React.useEffect(() => {
-    fetch(`/api/vans/${params.id}`, { mode: "cors" })
-      .then((response) => response.json())
-      .then((vanData) => setHostVanDetails(vanData.vans))
-      .catch((error) => console.error(error));
-  }, [params.id]);
+  // React.useEffect(() => {
+  //   fetch(`/api/vans/${params.id}`, { mode: "cors" })
+  //     .then((response) => response.json())
+  //     .then((vanData) => setHostVanDetails(vanData.vans))
+  //     .catch((error) => console.error(error));
+  // }, [params.id]);
 
-  console.log(hostVanDetails)
+  // console.log(hostVanDetails)
 
   return (
     <>
