@@ -1,6 +1,12 @@
 import React from "react";
 import { useParams, Link, useLocation } from "react-router-dom";
 import Button from "../../components/Button";
+import { getVans } from "../../api";
+
+export function loader({ params }) {
+  console.log(params)
+  return getVans()
+}
 
 function VanDetails() {
 
