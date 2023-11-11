@@ -70,15 +70,14 @@ const router = createBrowserRouter(createRoutesFromElements(
       <Route 
         path="vans/:id" 
         element={<HostVanDetails />}
-        loader={async () => {
-          return null;
-        }}
+        loader={hostVanDetailsLoader}
       >
         <Route 
           index 
           element={<HostsVanDetails />}
-          loader={hostVanDetailsLoader}
-
+          loader={async () => {
+            return null;
+          }}
         />
         <Route 
           path="pricing" 

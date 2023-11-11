@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams, Outlet, Link, NavLink, useLoaderData } from "react-router-dom";
+import {  Outlet, Link, NavLink, useLoaderData } from "react-router-dom";
 import { getHostVans } from "../../api";
 
 export function loader({ params }) {
@@ -14,20 +14,8 @@ function HostVanDetails() {
     color: "#16161"
   }
 
-  // const params = useParams();
   const hostVanDetails = useLoaderData();
-
-  // const [hostVanDetails, setHostVanDetails] = React.useState([]);
-
-  // React.useEffect(() => {
-  //   fetch(`/api/vans/${params.id}`, { mode: "cors" })
-  //     .then((response) => response.json())
-  //     .then((vanData) => setHostVanDetails(vanData.vans))
-  //     .catch((error) => console.error(error));
-  // }, [params.id]);
-
-  // console.log(hostVanDetails)
-
+  
   return (
     <>
       <div className="main flex justify-center bg-tan">
