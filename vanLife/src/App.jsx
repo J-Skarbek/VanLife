@@ -4,12 +4,12 @@ import Layout from './components/Layout';
 import HomePage from './pages//HomePage';
 import AboutPage from './pages/AboutPage';
 import VanListings, { loader as vansLoader } from './pages/Vans/VanListings';
-import VanDetails, {loader as vanDetailLoader} from './pages/Vans/VanDetails';
+import VanDetails, { loader as vanDetailLoader } from './pages/Vans/VanDetails';
 import HostLayout from './components/HostLayout';
 import Dashboard from './pages/Host/Dashboard';
 import Income from './pages/Host/Income';
 import Reviews from './pages/Host/Reviews';
-import HostVans from './pages/Host/HostVans';
+import HostVans, { loader as hostVansLoader } from './pages/Host/HostVans';
 import HostVanDetails from './pages/Host/HostVanDetails';
 import HostsVanDetails from './pages/Host/HostsVanDetails';
 import HostsVanPricing from './pages/Host/HostsVanPricing';
@@ -65,9 +65,7 @@ const router = createBrowserRouter(createRoutesFromElements(
       <Route 
         path="vans" 
         element={<HostVans />}
-        loader={async () => {
-          return null;
-        }}
+        loader={hostVansLoader}
       />
       <Route 
         path="vans/:id" 
