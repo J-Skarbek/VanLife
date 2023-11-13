@@ -1,8 +1,13 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLoaderData } from "react-router-dom";
+
+export function loginLoader({ request }) {
+  return new URL(request.url).searchParams.get("message")
+}
 
 function Login() {
-  const [loginFormData, setLoginFormData] = React.useState({ email: "", password: "" })
+  const [loginFormData, setLoginFormData] = React.useState({ email: "", password: "" });
+  const message = useLoaderData();
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -16,11 +21,14 @@ function Login() {
         [name]: value
     }))
   }
-
+  
   return (
     <div className="main flex justify-center pb-4 w-screen max-w-7x min-h-screen">
       <div className="flex flex-col pb-4 w-screen max-w-7xl">
         <div className="login-container">
+          {
+            message && <span className="text-4xl text-rose-700 font-extrabold">{message}</span>
+          }
           <h1>Sign in to your account</h1>
           <form onSubmit={handleSubmit} className="login-form flex flex-col w-3/6 my-4">
             <input
