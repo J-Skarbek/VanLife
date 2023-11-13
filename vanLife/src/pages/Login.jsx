@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate, useLoaderData } from "react-router-dom";
+import { loginUser } from "../api";
 
 export function loginLoader({ request }) {
   return new URL(request.url).searchParams.get("message")
