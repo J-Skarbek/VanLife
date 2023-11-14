@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import { loginUser } from "../api";
 
 export async function loginLoader({ request }) {
@@ -8,12 +8,16 @@ export async function loginLoader({ request }) {
 
 function Login() {
   const [loginFormData, setLoginFormData] = React.useState({ email: "", password: "" });
+  const [status, setStatus] = React.useState('idle');
   const message = useLoaderData();
 
   function handleSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
+    setStatus('submitting')
     loginUser(loginFormData)
       .then(data => console.log(data))
+      .catch()
+      .finally(() => setStatus('idle'))
   }
 
   function handleChange(e) {
@@ -48,7 +52,12 @@ function Login() {
                 placeholder="Password"
                 value={loginFormData.password}
             />
-            <button className="my-4 bg-orange-500 text-white hover:bg-white hover:text-orange-500 drop-shadow-xl">Log in</button>
+            <button 
+              disabled={status === 'submitting'} 
+              className="my-4 bg-orange-500 text-white hover:bg-white hover:text-orange-500 drop-shadow-xl"
+            > 
+              {status === 'submitting' ? 'Loggin In' : 'Log In'}
+            </button>
           </form>
         </div>
       </div>
