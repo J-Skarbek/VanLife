@@ -1,5 +1,5 @@
 import React from "react";
-import { useLoaderData, useNavigate, Form } from "react-router-dom";
+import { useLoaderData, useNavigate, Form, redirect } from "react-router-dom";
 import { loginUser } from "../api";
 
 export async function loginLoader({ request }) {
@@ -11,8 +11,14 @@ export async function action({ request }) {
   const email = formData.get('email');
   const password = formData.get('password')
   const data = await loginUser({ email, password });
+  localStorage.setItem('loggedin', true);
   console.log(data);
-  return null;
+  return redirect("/host");
+}
+
+function clearStorage() {
+  console.log('storage cleared')
+  return localStorage.removeItem('loggedin')
 }
 
 function Login() {
@@ -20,7 +26,7 @@ function Login() {
   const [status, setStatus] = React.useState('idle');
   const [error, setError] = React.useState(null);
   const message = useLoaderData();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   // function handleSubmit(e) {
   //   e.preventDefault();
@@ -73,6 +79,7 @@ function Login() {
             </button>
           </Form>
         </div>
+        <button onClick={clearStorage}>Clear Storage</button>
       </div>
     </div>
   )
