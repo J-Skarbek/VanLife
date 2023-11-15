@@ -16,7 +16,7 @@ import HostsVanPricing from './pages/Host/HostsVanPricing';
 import HostsVanPhotos from './pages/Host/HostsVanPhotos';
 import PageNotFound from './pages/PageNotFound';
 import VansRouteError from './errorElements/VansRouteError';
-import Login, { loginLoader } from './pages/Login';
+import Login, { loginLoader, action as loginAction } from './pages/Login';
 import { requireAuth } from './utils';
 import './App.css';
 
@@ -30,6 +30,7 @@ const router = createBrowserRouter(createRoutesFromElements(
       path="login" 
       element={<Login />} 
       loader={loginLoader}
+      action={loginAction}
     />
     <Route 
       path="van-listings" 
