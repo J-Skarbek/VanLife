@@ -6,8 +6,11 @@ export async function loginLoader({ request }) {
   return new URL(request.url).searchParams.get("message")
 }
 
-export async function action(obj) {
-  console.log(obj);
+export async function action({ request }) {
+  const formData = await request.formData();
+  const email = formData.get('email');
+  const password = formData.get('password')
+  console.log(email, password)
   return null;
 }
 
