@@ -10,7 +10,8 @@ export async function action({ request }) {
   const formData = await request.formData();
   const email = formData.get('email');
   const password = formData.get('password')
-  console.log(email, password)
+  const data = await loginUser({ email, password });
+  console.log(data);
   return null;
 }
 
@@ -55,18 +56,14 @@ function Login() {
           <Form method="post" className="login-form flex flex-col w-3/6 my-4">
             <input
                 name="email"
-                // onChange={handleChange}
                 type="email"
                 placeholder="Email address"
-                // value={loginFormData.email}
                 className="my-4"
             />
             <input
                 name="password"
-                // onChange={handleChange}
                 type="password"
                 placeholder="Password"
-                // value={loginFormData.password}
             />
             <button 
               disabled={status === 'submitting'} 
