@@ -25,31 +25,9 @@ function clearStorage() {
 }
 
 function Login() {
-  // const [loginFormData, setLoginFormData] = React.useState({ email: "", password: "" });
   const [status, setStatus] = React.useState('idle');
   const [error, setError] = React.useState(null);
   const message = useLoaderData();
-  // const navigate = useNavigate();
-
-  // function handleSubmit(e) {
-  //   e.preventDefault();
-  //   setStatus('submitting')
-  //   setError(null)
-  //   loginUser(loginFormData)
-  //     .then(data => {
-  //       navigate('/host', {replace: true})
-  //     })
-  //     .catch(err => setError(err))
-  //     .finally(() => setStatus('idle'))
-  // }
-
-  // function handleChange(e) {
-  //   const { name, value } = e.target
-  //   setLoginFormData(prev => ({
-  //       ...prev,
-  //       [name]: value
-  //   }))
-  // }
   
   return (
     <div className="main flex justify-center pb-4 w-screen max-w-7x min-h-screen">
