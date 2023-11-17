@@ -1,5 +1,11 @@
 import React from "react";
-import { useLoaderData, useActionData, Form, redirect } from "react-router-dom";
+import { 
+  useLoaderData, 
+  useActionData, 
+  useNavigation, 
+  Form, 
+  redirect 
+} from "react-router-dom";
 import { loginUser } from "../api";
 
 export async function loginLoader({ request }) {
@@ -30,9 +36,9 @@ function clearStorage() {
 }
 
 function Login() {
-  const [status, setStatus] = React.useState('idle');
   const message = useLoaderData();
   const errorMessage = useActionData();
+  const navigation = useNavigation();
   
   return (
     <div className="main flex justify-center pb-4 w-screen max-w-7x min-h-screen">
@@ -51,21 +57,21 @@ function Login() {
             className="login-form flex flex-col w-3/6 my-4"
           >
             <input
-                name="email"
-                type="email"
-                placeholder="Email address"
-                className="my-4"
+              name="email"
+              type="email"
+              placeholder="Email address"
+              className="my-4"
             />
             <input
-                name="password"
-                type="password"
-                placeholder="Password"
+              name="password"
+              type="password"
+              placeholder="Password"
             />
             <button 
-              disabled={status === 'submitting'} 
+              disabled={navigation.state === 'submitting'} 
               className="my-4 bg-orange-500 text-white hover:bg-white hover:text-orange-500 drop-shadow-xl"
             > 
-              {status === 'submitting' ? 'Loggin In' : 'Log In'}
+              {navigation.state === 'submitting' ? 'Loggin In' : 'Log In'}
             </button>
           </Form>
         </div>
