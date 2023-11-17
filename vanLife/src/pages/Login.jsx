@@ -12,8 +12,11 @@ export async function action({ request }) {
   const password = formData.get('password')
   const data = await loginUser({ email, password });
   localStorage.setItem('loggedin', true);
-  console.log(data);
-  return redirect("/host");
+  console.log(data, 'The login event is triggered');
+  //Due to an issue with mirage.js -- the next three lines are a workaround to using a simple redirect call
+  const response = redirect('/host');
+  response.body = true;
+  return response;
 }
 
 function clearStorage() {
