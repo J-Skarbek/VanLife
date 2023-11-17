@@ -62,7 +62,11 @@ function Login() {
             error && <span className="text-4xl text-rose-700 font-extrabold">{error.message}</span>
           }
           <h1>Sign in to your account</h1>
-          <Form method="post" className="login-form flex flex-col w-3/6 my-4">
+          <Form 
+            replace 
+            method="post" 
+            className="login-form flex flex-col w-3/6 my-4"
+          >
             <input
                 name="email"
                 type="email"
