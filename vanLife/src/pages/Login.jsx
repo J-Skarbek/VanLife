@@ -1,5 +1,5 @@
 import React from "react";
-import { useLoaderData, useNavigate, Form, redirect } from "react-router-dom";
+import { useLoaderData, useActionData, Form, redirect } from "react-router-dom";
 import { loginUser } from "../api";
 
 export async function loginLoader({ request }) {
@@ -10,13 +10,18 @@ export async function action({ request }) {
   const formData = await request.formData();
   const email = formData.get('email');
   const password = formData.get('password')
-  const data = await loginUser({ email, password });
-  localStorage.setItem('loggedin', true);
-  console.log(data, 'The login event is triggered');
-  //Due to an issue with mirage.js -- the next three lines are a workaround to using a simple redirect call
-  const response = redirect('/host');
-  response.body = true;
-  return response;
+
+  try {
+    const data = await loginUser({ email, password });
+    localStorage.setItem('loggedin', true);
+    console.log(data, 'The login event is triggered');
+    //Due to an issue with mirage.js -- the next three lines are a workaround to using a simple redirect call
+    const response = redirect('/host');
+    response.body = true;
+    return response;
+  } catch(err) {
+    return err.message;
+  }
 }
 
 function clearStorage() {
@@ -26,8 +31,8 @@ function clearStorage() {
 
 function Login() {
   const [status, setStatus] = React.useState('idle');
-  const [error, setError] = React.useState(null);
   const message = useLoaderData();
+  const errorMessage = useActionData();
   
   return (
     <div className="main flex justify-center pb-4 w-screen max-w-7x min-h-screen">
@@ -37,7 +42,7 @@ function Login() {
             message && <span className="text-4xl text-rose-700 font-extrabold">{message}</span>
           }
           {
-            error && <span className="text-4xl text-rose-700 font-extrabold">{error.message}</span>
+            errorMessage && <span className="text-4xl text-rose-700 font-extrabold">{errorMessage}</span>
           }
           <h1>Sign in to your account</h1>
           <Form 
