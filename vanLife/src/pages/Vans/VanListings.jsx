@@ -10,7 +10,7 @@ import {
 import { getVans } from "../../api";
 
 export function loader() {
-  return defer({vans: getVans()});
+  return defer({ vans: getVans() });
 }
 
 function VanListings() {
