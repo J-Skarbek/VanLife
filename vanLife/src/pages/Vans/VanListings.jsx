@@ -27,8 +27,6 @@ function VanListings() {
     const displayedVans = typeFilter
     ? vans.filter(van => van.type.toLowerCase() === typeFilter)
     : vans;
-    // console.log(displayedVans)
-    // console.log(vans)
   
     const vanElements = displayedVans.map(van => {
       return (
@@ -44,6 +42,7 @@ function VanListings() {
         />
       )
     })
+
     return (
       <div className="container pl-4 py-8 xl:pr-56 w-screen max-w-7xl flex flex-col justify-start text-white">
         <h1 className="text-black font-bold mb-4">Explore Our Van Options</h1>
@@ -63,6 +62,7 @@ function VanListings() {
         </div>
       </div>
     )
+    
   }
 
   return (
