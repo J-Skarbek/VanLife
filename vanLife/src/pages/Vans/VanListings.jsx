@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import VanCard from "../../components/VanCard";
 // import Button from "../../components/Button";
 import { 
@@ -67,9 +67,11 @@ function VanListings() {
 
   return (
     <div className="main flex justify-center">
-      <Await resolve={dataPromise.vans}>
-        {renderVanElements}
-      </Await>
+      <Suspense fallback={<h2>Loading Vans...</h2>}>
+        <Await resolve={dataPromise.vans}>
+          {renderVanElements}
+        </Await>
+      </Suspense>
     </div>
   )
 }
