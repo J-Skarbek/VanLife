@@ -16,6 +16,32 @@ function HostVans() {
 
   const dataPromise = useLoaderData();
 
+  function renderVans(vans) {
+     const displayVans = vans.map(van => {
+      return (
+        <Link
+          to={van.id}
+          key={van.id}
+          className="host-van-link-wrapper"
+        >
+          <div className="host-van-single flex bg-tan my-4 drop-shadow-md" key={van.id}>
+            <div className="image-container w-1/5">
+              <img src={van.imageUrl} alt={`Photo of ${van.name}`} />
+            </div>
+            <div className="host-van-info flex flex-col justify-center px-4">
+              <h3>{van.name}</h3>
+              <p>${van.price}/day</p>
+            </div>
+          </div>
+        </Link>
+      )
+     });
+     return (
+      <section>
+        {displayVans}
+      </section>
+    )
+  }
 
   return (
     <section>
@@ -25,32 +51,7 @@ function HostVans() {
           <div className="host-vans-list">
             <Suspense fallback={<h2 className="text-black">Loading Your Vans...</h2>}>
               <Await resolve={dataPromise.vans}>
-                {(loadedHostVans) => {
-                  const test = loadedHostVans.map(van => {
-                    return (
-                      <Link
-                        to={van.id}
-                        key={van.id}
-                        className="host-van-link-wrapper"
-                      >
-                        <div className="host-van-single flex bg-tan my-4 drop-shadow-md" key={van.id}>
-                          <div className="image-container w-1/5">
-                            <img src={van.imageUrl} alt={`Photo of ${van.name}`} />
-                          </div>
-                          <div className="host-van-info flex flex-col justify-center px-4">
-                            <h3>{van.name}</h3>
-                            <p>${van.price}/day</p>
-                          </div>
-                        </div>
-                      </Link>
-                    )
-                  });
-                return (
-                  <section>
-                    {test}
-                  </section>
-                )
-              }}               
+               {renderVans}             
               </Await>
             </Suspense>
           </div>
