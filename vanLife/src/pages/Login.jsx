@@ -15,14 +15,15 @@ export async function loginLoader({ request }) {
 export async function action({ request }) {
   const formData = await request.formData();
   const email = formData.get('email');
-  const password = formData.get('password')
+  const password = formData.get('password');
+  const pathname = new URL(request.url).searchParams.get("redirectTo") || '/host';
 
   try {
     const data = await loginUser({ email, password });
     localStorage.setItem('loggedin', true);
     console.log(data, 'The login event is triggered');
     //Due to an issue with mirage.js -- the next three lines are a workaround to using a simple redirect call
-    const response = redirect('/host');
+    const response = redirect(pathname);
     response.body = true;
     return response;
   } catch(err) {
