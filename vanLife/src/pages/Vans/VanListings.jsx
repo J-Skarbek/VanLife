@@ -23,50 +23,52 @@ function VanListings() {
     return <h1>There was an error: {error.message}</h1>
   }
 
+  function renderVanElements(vans) {
+    const displayedVans = typeFilter
+    ? vans.filter(van => van.type.toLowerCase() === typeFilter)
+    : vans;
+    // console.log(displayedVans)
+    // console.log(vans)
+  
+    const vanElements = displayedVans.map(van => {
+      return (
+        <VanCard 
+          key={van.id}
+          id={van.id}
+          name={van.name}
+          imageUrl={van.imageUrl}
+          price={van.price}
+          type={van.type}
+          description={van.description}
+          search={searchParams}
+        />
+      )
+    })
+    return (
+      <div className="container pl-4 py-8 xl:pr-56 w-screen max-w-7xl flex flex-col justify-start text-white">
+        <h1 className="text-black font-bold mb-4">Explore Our Van Options</h1>
+        <div className="van-filters-container flex my-4">
+          <button className="w-1/2 mx-2 text-black" onClick={() => setSearchParams({type: "simple"})}>Simple</button>
+          <button className="w-1/2 mx-2 text-black" onClick={() => setSearchParams({type: "rugged"})}>Rugged</button>
+          <button className="w-1/2 mx-2 text-black" onClick={() => setSearchParams({type: "luxury"})}>Luxury</button>
+          { typeFilter ? (
+            <button 
+              className="w-1/2 mx-2 text-black" 
+              onClick={() => setSearchParams({})}
+            >Clear Filters</button> 
+            ) : null }
+        </div>
+        <div className="vansGrid grid grid-cols-2 auto-rows-auto w-5/6">
+        {vanElements}
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="main flex justify-center">
       <Await resolve={dataPromise.vans}>
-        {(vans) => {
-          const displayedVans = typeFilter
-          ? vans.filter(van => van.type.toLowerCase() === typeFilter)
-          : vans;
-          console.log(displayedVans)
-          console.log(vans)
-        
-          const vanElements = displayedVans.map(van => {
-            return (
-              <VanCard 
-                key={van.id}
-                id={van.id}
-                name={van.name}
-                imageUrl={van.imageUrl}
-                price={van.price}
-                type={van.type}
-                description={van.description}
-                search={searchParams}
-              />
-            )
-          })
-          return (
-            <div className="container pl-4 py-8 xl:pr-56 w-screen max-w-7xl flex flex-col justify-start text-white">
-              <h1 className="text-black font-bold mb-4">Explore Our Van Options</h1>
-              <div className="van-filters-container flex my-4">
-                <button className="w-1/2 mx-2 text-black" onClick={() => setSearchParams({type: "simple"})}>Simple</button>
-                <button className="w-1/2 mx-2 text-black" onClick={() => setSearchParams({type: "rugged"})}>Rugged</button>
-                <button className="w-1/2 mx-2 text-black" onClick={() => setSearchParams({type: "luxury"})}>Luxury</button>
-                { typeFilter ? (
-                  <button 
-                    className="w-1/2 mx-2 text-black" 
-                    onClick={() => setSearchParams({})}
-                  >Clear Filters</button> 
-                  ) : null }
-              </div>
-              <div className="vansGrid grid grid-cols-2 auto-rows-auto w-5/6">
-              {vanElements}
-              </div>
-            </div>
-          )
-        }}
+        {renderVanElements}
       </Await>
     </div>
   )
