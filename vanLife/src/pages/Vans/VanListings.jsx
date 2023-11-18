@@ -1,11 +1,11 @@
 import React from "react";
 import VanCard from "../../components/VanCard";
 // import Button from "../../components/Button";
-import { useSearchParams, useLoaderData } from "react-router-dom";
+import { useSearchParams, useLoaderData, defer } from "react-router-dom";
 import { getVans } from "../../api";
 
 export function loader() {
-  return getVans();
+  return defer({displayedVans: getVans()});
 }
 
 function VanListings() {
