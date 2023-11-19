@@ -3,7 +3,8 @@ import {
   Link,
   useLoaderData,
   defer,
-  Await } from "react-router-dom";
+  Await 
+  } from "react-router-dom";
 import { getHostVans } from "../../api";
 import { requireAuth } from "../../utils";
 
@@ -17,7 +18,7 @@ function HostVans() {
   const dataPromise = useLoaderData();
 
   function renderVans(vans) {
-     const displayVans = vans.map(van => {
+    const displayVans = vans.map(van => {
       return (
         <Link
           to={van.id}
@@ -35,7 +36,7 @@ function HostVans() {
           </div>
         </Link>
       )
-     });
+    });
      return (
       <section>
         {displayVans}
