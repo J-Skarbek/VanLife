@@ -1,9 +1,9 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { 
   Outlet,
   Link, 
   NavLink, 
-  useLoaderData
+  useLoaderData,
   defer,
   Await 
 } from "react-router-dom";
@@ -12,12 +12,13 @@ import { requireAuth } from "../../utils";
 
 export async function loader({ params, request }) {
   await requireAuth(request);
-  // getHostVans(params.id)
-  return defer({ van: getHostVans(params.id) })
+  // getHosthostVanDetailss(params.id)
+  return defer({ hostVanDetails: getHostVans(params.id) })
 }
 
 function HostVanDetails() {
   const dataPromise = useLoaderData();
+  console.log(dataPromise)
 
   const customLinkStyles = {
     fontWeight: "bold",
@@ -25,36 +26,24 @@ function HostVanDetails() {
     color: "#16161"
   }
 
-  // const hostVanDetails = useLoaderData();
-  
-  return (
-    <>
-      <div className="main flex justify-center bg-tan">
-        <div className="container pl-4 py-8 xl:pr-56 w-screen max-w-7xl flex flex-col justify-start">
-          <section className="mb-4">
-            <Link
-              to=".."
-              relative="path"
-              className="back-button"
-            >&larr;<span>Back to all vans</span>
-            </Link>
-          </section>
-          {
-             hostVanDetails ? (
-              <div className="van-details flex">
-                <div className="image-container w-1/5">
-                  <img src={`${hostVanDetails.imageUrl}`} alt={hostVanDetails.name} className="cover"/>
-                </div>
-                <div className="host-van-info flex flex-col justify-center px-4">
-                  <span className="van-type">{hostVanDetails.type}</span>
-                  <h2 className="font-bold text-4xl my-4">{hostVanDetails.name}</h2>
-                  <p className="van-price font-semibold">{`$${hostVanDetails.price}/day`}</p>
-                </div>
-              </div>
-            ) : <h2 className="loading">Loading...</h2> 
-          }
-        <div className="hostvan-details-navbar my-4">
-          {/* <HostDashBoardSubnavigation /> */}
+
+  function renderHostVanDetails(hostVanDetails) {
+    return (
+      <>
+        { hostVanDetails ? (
+          <div className="hostVanDetails-details flex">
+            <div className="image-container w-1/5">
+              <img src={`${hostVanDetails.imageUrl}`} alt={hostVanDetails.name} className="cover"/>
+            </div>
+            <div className="host-hostVanDetails-info flex flex-col justify-center px-4">
+              <span className="hostVanDetails-type">{hostVanDetails.type}</span>
+              <h2 className="font-bold text-4xl my-4">{hostVanDetails.name}</h2>
+              <p className="hostVanDetails-price font-semibold">{`$${hostVanDetails.price}/day`}</p>
+            </div>
+          </div>
+        ) : <h2 className="loading">Loading...</h2>
+      }
+        <div className="hosthostVanDetails-details-navbar my-4">
           <>
             <nav>
             <NavLink 
@@ -80,6 +69,26 @@ function HostVanDetails() {
           </>
           <Outlet context={{ hostVanDetails }}/>
         </div>
+    </>
+  )}
+  
+  return (
+    <>
+      <div className="main flex justify-center bg-tan">
+        <div className="container pl-4 py-8 xl:pr-56 w-screen max-w-7xl flex flex-col justify-start">
+          <section className="mb-4">
+            <Link
+              to=".."
+              relative="path"
+              className="back-button"
+            >&larr;<span>Back to all hostVanDetailss</span>
+            </Link>
+          </section>
+          <Suspense fallback={<h2 className="text-black">Loading hostVanDetails...</h2>}>
+            <Await resolve={dataPromise.hostVanDetails}>
+             {renderHostVanDetails}
+          </Await>
+        </Suspense>
         </div>
       </div>
     </>
@@ -90,7 +99,7 @@ export default HostVanDetails;
 
 //old component below:
 
-// function HostVanDetails() {
+// function HosthostVanDetailsDetails() {
 
 //   const customLinkStyles = {
 //     fontWeight: "bold",
@@ -98,7 +107,7 @@ export default HostVanDetails;
 //     color: "#16161"
 //   }
 
-//   const hostVanDetails = useLoaderData();
+//   const hosthostVanDetailsDetails = useLoaderData();
   
 //   return (
 //     <>
@@ -109,24 +118,24 @@ export default HostVanDetails;
 //               to=".."
 //               relative="path"
 //               className="back-button"
-//             >&larr;<span>Back to all vans</span>
+//             >&larr;<span>Back to all hostVanDetailss</span>
 //             </Link>
 //           </section>
 //           {
-//              hostVanDetails ? (
-//               <div className="van-details flex">
+//              hosthostVanDetailsDetails ? (
+//               <div className="hostVanDetails-details flex">
 //                 <div className="image-container w-1/5">
-//                   <img src={`${hostVanDetails.imageUrl}`} alt={hostVanDetails.name} className="cover"/>
+//                   <img src={`${hosthostVanDetailsDetails.imageUrl}`} alt={hosthostVanDetailsDetails.name} className="cover"/>
 //                 </div>
-//                 <div className="host-van-info flex flex-col justify-center px-4">
-//                   <span className="van-type">{hostVanDetails.type}</span>
-//                   <h2 className="font-bold text-4xl my-4">{hostVanDetails.name}</h2>
-//                   <p className="van-price font-semibold">{`$${hostVanDetails.price}/day`}</p>
+//                 <div className="host-hostVanDetails-info flex flex-col justify-center px-4">
+//                   <span className="hostVanDetails-type">{hosthostVanDetailsDetails.type}</span>
+//                   <h2 className="font-bold text-4xl my-4">{hosthostVanDetailsDetails.name}</h2>
+//                   <p className="hostVanDetails-price font-semibold">{`$${hosthostVanDetailsDetails.price}/day`}</p>
 //                 </div>
 //               </div>
 //             ) : <h2 className="loading">Loading...</h2> 
 //           }
-//         <div className="hostvan-details-navbar my-4">
+//         <div className="hosthostVanDetails-details-navbar my-4">
 //           {/* <HostDashBoardSubnavigation /> */}
 //           <>
 //             <nav>
@@ -151,7 +160,7 @@ export default HostVanDetails;
 //               </NavLink>
 //             </nav>
 //           </>
-//           <Outlet context={{ hostVanDetails }}/>
+//           <Outlet context={{ hosthostVanDetailsDetails }}/>
 //         </div>
 //         </div>
 //       </div>
@@ -159,4 +168,4 @@ export default HostVanDetails;
 //   )
 // }
 
-// export default HostVanDetails;
+// export default HosthostVanDetailsDetails;
