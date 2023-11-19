@@ -10,7 +10,6 @@ import Button from "../../components/Button";
 import { getVans } from "../../api";
 
 export function loader({ params }) {
-  // return getVans(params.id)
   return defer({ van: getVans(params.id) })
 }
 
@@ -20,6 +19,20 @@ function VanDetails() {
 
   const search = location.state?.search || "";
   const type = location.state?.type || "all";
+
+  function renderVanDetails(van) {
+    return (
+      van ? (
+        <div className="van-details">
+          <img src={`${van.imageUrl}`} alt={van.name} className="mb-12 w-screen h-3/4 xl:h-2/4 object-cover max-w-7xl"/>
+          <p className="van-type">{van.type}</p>
+          <h2 className="bold text-2xl">{van.name}</h2>
+          <p className="description">{van.description}</p>
+          <button className="link-button">Rent this van</button>
+        </div>
+      ) : <h2 className="loading">Loading...</h2>
+    )
+  }
 
   return (
     <div className="main flex justify-center pb-4 w-screen max-w-7x min-h-screen">
@@ -32,19 +45,7 @@ function VanDetails() {
         </Link>
         <Suspense fallback={<h2 className="text-black">Loading Van...</h2>}>
           <Await resolve={dataPromise.van}>
-            {van => {
-              return (
-              van ? (
-                <div className="van-details">
-                  <img src={`${van.imageUrl}`} alt={van.name} className="mb-12 w-screen h-3/4 xl:h-2/4 object-cover max-w-7xl"/>
-                  <p className="van-type">{van.type}</p>
-                  <h2 className="bold text-2xl">{van.name}</h2>
-                  <p className="description">{van.description}</p>
-                  <button className="link-button">Rent this van</button>
-                </div>
-              ) : <h2 className="loading">Loading...</h2>
-              )
-            }}
+           {renderVanDetails}
           </Await>
         </Suspense>
       </div>
