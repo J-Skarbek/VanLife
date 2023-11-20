@@ -14,14 +14,10 @@ export function loader() {
 }
 
 function VanListings() {
-  const [error, setError] = React.useState(null);
+
   const [searchParams, setSearchParams] = useSearchParams();
   const typeFilter = searchParams.get('type');
   const dataPromise = useLoaderData();
-
-  if (error) {
-    return <h1>There was an error: {error.message}</h1>
-  }
 
   function renderVanElements(vans) {
     const displayedVans = typeFilter
