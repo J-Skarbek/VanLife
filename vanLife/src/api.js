@@ -9,9 +9,9 @@ import {
   where 
 } from "firebase/firestore/lite";
 
-//Saved to local for future reference
 const firebaseConfig = {
-
+  //Saved to local for future reference
+  
 };
 
 const app = initializeApp(firebaseConfig);
